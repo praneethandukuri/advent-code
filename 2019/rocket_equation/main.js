@@ -1,4 +1,4 @@
-import { processInput, totalFuelRequirement } from "./fuelCalculator.js";
+import { processInput, totalFuelRequirement } from "./src/fuelCalculator.js";
 
 const main = () => {
   try {
