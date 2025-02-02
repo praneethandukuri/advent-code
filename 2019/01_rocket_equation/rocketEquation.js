@@ -1,21 +1,13 @@
-import {
-  totalFuelRequirement,
-  processInput,
-  readMassesFromFile,
-} from "./src/fuelCalculator.js";
+import { calculateTotalFuel } from "./src/fuelCalculator.js";
+import data from "./data/data_2.json" with { type: "json" };
 
-const main = function () {
-  const args = Deno.args;
+const main = () => {
+  const masses = data;
+  const totalFuelPart1 = calculateTotalFuel(masses, false);
+  console.log(`Total fuel requirement for Part 1: ${totalFuelPart1}`);
 
-  const masses =
-    args.length > 0
-      ? processInput(args)
-      : readMassesFromFile(
-          "/Users/praneethandukuri/praneeth/javascript/javascript_practice/advent-code/2019/01_rocket_equation/data/data_1.json"
-        );
-
-  const totalFuel = totalFuelRequirement(masses);
-  console.log(`Total Fuel Requirement: ${totalFuel}`);
+  const totalFuelPart2 = calculateTotalFuel(masses, true);
+  console.log(`Total fuel requirement for Part 2: ${totalFuelPart2}`);
 };
 
 main();
